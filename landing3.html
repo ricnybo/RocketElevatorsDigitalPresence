@@ -23,7 +23,7 @@
 
 		<!-- PAGE LEVEL SCRIPTS -->
 		<link href="assets/css/header-1.css" rel="stylesheet" type="text/css" />
-		<link href="assets/css/color_scheme/blue.css" rel="stylesheet" type="text/css" id="color_scheme" />
+		<link href="assets/css/color_scheme/green.css" rel="stylesheet" type="text/css" id="color_scheme" />
 	</head>
 
 	<!--
@@ -78,7 +78,7 @@
 
 				Example Usage:  class="clearfix sticky header-sm transparent b-0"
 			-->
-			<div id="header" class="navbar-toggleable-md sticky transparent clearfix">
+			<div id="header" class="navbar-toggleable-md sticky clearfix">
 
 				<!-- TOP NAV -->
 				<header id="topNav">
@@ -110,34 +110,29 @@
 									Add .external for an external link!
 								-->
 								<ul id="topMain" class="nav nav-pills nav-main nav-onepage">
-									<li><!-- HOME -->
-										<a href="index.html#home">
+									<li class="active"><!-- HOME -->
+										<a href="#home">
 											HOME
 										</a>
 									</li>
-									<li><!-- SERVICES -->
-										<a href="Commercial.html">
-											SERVICES
+									<li><!-- FEATURES -->
+										<a href="#features">
+											FEATURES
 										</a>
 									</li>
-									<li><!-- PORTFOLIO -->
-										<a href="index.html#portfolio">
-											PORTFOLIO
+									<li><!-- PRICING -->
+										<a href="#pricing">
+											PRICING
 										</a>
 									</li>
-									<li><!-- NEWS -->
-										<a href="index.html#news">
-											NEWS
+									<li><!-- TESTIMONIALS -->
+										<a href="#testimonials">
+											TESTIMONIALS
 										</a>
 									</li>
-									<li><!-- CLIENTS -->
-										<a href="index.html#clients">
-											CLIENTS
-										</a>
-									</li>
-									<li><!-- CONTACT -->
-										<a href="index.html#contact">
-											CONTACT
+									<li><!-- PURCHASE -->
+										<a class="external" href="#purchase">
+											PURCHASE
 										</a>
 									</li>
 								</ul>
@@ -153,32 +148,47 @@
 
 
 			<!-- HOME -->
-			<section id="slider" class="fullheight" style="background:url('assets/images/rocketElevators/homeSliderResidential.jpeg')">
-				<div class="overlay dark-5"><!-- dark overlay [1 to 9 opacity] --></div>
-
-				<div class="display-table">
-					<div class="display-table-cell vertical-align-middle">
+			<section id="home">
 						
-						<div class="container text-center">
-							
-							<h1 class="m-0 fs-70 fw-300 wow fadeInUp" data-wow-delay="0.4s">Residential Services</h1>
-							<p></p>
-							<p class="lead font-lato fs-50 wow fadeInUp" data-wow-delay="0.7s">3 Models To Choose From</p>
-							<p class="lead font-lato fs-25 wow fadeInUp" data-wow-delay="0.7s">Are you in need of a small single passenger elevator? Maybe a wider wheelchair accessible lift?<br>
-								PVE home lifts are designed to meet all homeowner needs!<br>
-								Learn more about all 3 models of our residential elevators below:</p>
-							
-							<!--
-							<div class="mt-30">
-								<a href="#" class="btn btn-3d btn-lg btn-teal"><i class="glyphicon glyphicon-th-large"></i>FREE TRIAL</a>
-								<span class="fs-17 hidden-xs-down btn btn-lg">&nbsp; OR &nbsp;</span>
-								<a href="#" class="btn btn-3d btn-lg btn-red"><i class="glyphicon glyphicon-user"></i>START FOR A SIBSCRIPTION</a>
-							</div>-->
+				<div class="container text-center">
+					
+					<h1 class="m-0 fs-50 fw-300 wow fadeInUp" data-wow-delay="0.4s">Unlimited Easy Landing Pages</h1>
+					<p class="lead font-lato fs-30 wow fadeInUp" data-wow-delay="0.7s">Building a Landing Page was never so Easy &amp; Interactive.</p>
+					
+					<div class="mt-30">
+						<a href="#" class="btn btn-3d btn-lg btn-teal"><i class="glyphicon glyphicon-th-large"></i>FREE TRIAL</a>
+						<span class="fs-17 hidden-xs-down">&nbsp; OR &nbsp;</span>
+						<a href="#" class="btn btn-3d btn-lg btn-red"><i class="glyphicon glyphicon-user"></i>START FOR A SIBSCRIPTION</a>
+					</div>
 
+
+					<div class="row mt-100 text-left">
+
+						<div class="col-md-8 col-sm-12 mb-30">
+							<img class="img-fluid" src="demo_files/images/laptop.png" alt="product image" />
 						</div>
 
+						<div class="col-md-4 col-sm-12">
+							<h3 class="fw-300">Product <span>Overview</span></h3>
+						
+							<p>Lorem ipsum dolor sit amet, hinc dolores noluisse at vel, ex quod aperiri scaevola has, cum te sanctus denique. Eu liber docendi petentium has, labore.</p>
+							<p>Etiam falli mentitum id mel, ut mel sumo postulant referrentur. At has minim imperdiet, soluta offendit ocurreret sea an. </p>
+							
+							<hr />
+
+							<ul class="list-unstyled list-icons">
+								<li><i class="fa fa-check"></i> Nobis nemore epicuri pro ea</li>
+								<li><i class="fa fa-check"></i> Qui dicunt singulis dissentias an</li>
+								<li><i class="fa fa-check"></i> Ea vis diceret constituam</li>
+								<li><i class="fa fa-check"></i> Mei no autem idque integre, sumo facilis</li>
+								<li><i class="fa fa-check"></i> Est quodsi labitur moderatius an</li>
+							</ul>
+
+						</div>
 					</div>
+
 				</div>
+
 			</section>
 			<!-- /HOME -->
 
@@ -626,28 +636,79 @@
 			<footer id="footer">
 				<div class="container">
 
-
 					<div class="row">
-
-						<!-- col #1 -->
-						<div class="col-md-8">
-
-							<h3 class="letter-spacing-1">CALL</h3>
+						
+						<div class="col-md-3">
+							<!-- Footer Logo -->
+							<img class="footer-logo" src="assets/images/rocketElevators/rocketLogo.png" alt="" />
 
 							<!-- Small Description -->
-							<p>
-								Use us for your next elevator installation or service
-							</p>
-							<h2>(800) 887-2497</h2>
-						</div>
-						<!-- /col #1 -->
+							<p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
 
-						<!-- col #2 -->
+							<!-- Contact Address -->
+							<address>
+								<ul class="list-unstyled">
+									<li class="footer-sprite address">
+										PO Box 21132<br>
+										Here Weare St, Melbourne<br>
+										Vivas 2355 Australia<br>
+									</li>
+									<li class="footer-sprite phone">
+										Phone: 1-800-565-2390
+									</li>
+									<li class="footer-sprite email">
+										<a href="mailto:support@yourname.com">support@yourname.com</a>
+									</li>
+								</ul>
+							</address>
+							<!-- /Contact Address -->
+
+						</div>
+
+						<div class="col-md-3">
+
+							<!-- Latest Blog Post -->
+							<h4 class="letter-spacing-1">LATEST NEWS</h4>
+							<ul class="footer-posts list-unstyled">
+								<li>
+									<a href="#">Donec sed odio dui. Nulla vitae elit libero, a pharetra augue</a>
+									<small>29 June 2017</small>
+								</li>
+								<li>
+									<a href="#">Nullam id dolor id nibh ultricies</a>
+									<small>29 June 2017</small>
+								</li>
+								<li>
+									<a href="#">Duis mollis, est non commodo luctus</a>
+									<small>29 June 2017</small>
+								</li>
+							</ul>
+							<!-- /Latest Blog Post -->
+
+						</div>
+
+						<div class="col-md-2">
+
+							<!-- Links -->
+							<h4 class="letter-spacing-1">EXPLORE Rocket Elevators</h4>
+							<ul class="footer-links list-unstyled">
+								<li><a href="#">Home</a></li>
+								<li><a href="#">About Us</a></li>
+								<li><a href="#">Our Services</a></li>
+								<li><a href="#">Our Clients</a></li>
+								<li><a href="#">Our Pricing</a></li>
+								<li><a href="#">Rocket Elevators Tour</a></li>
+								<li><a href="#">Contact Us</a></li>
+							</ul>
+							<!-- /Links -->
+
+						</div>
+
 						<div class="col-md-4">
-							<h3 class="letter-spacing-1">KEEP IN TOUCH</h3>
 
 							<!-- Newsletter Form -->
-							<p>Subscribe to Our Newsletter to get Important News & Offers</p>
+							<h4 class="letter-spacing-1">KEEP IN TOUCH</h4>
+							<p>Subscribe to Our Newsletter to get Important News &amp; Offers</p>
 
 							<form class="validate" action="php/newsletter.php" method="post" data-success="Subscribed! Thank you!" data-toastr-position="bottom-right">
 								<div class="input-group">
@@ -660,12 +721,40 @@
 							</form>
 							<!-- /Newsletter Form -->
 
+							<!-- Social Icons -->
+							<div class="mt-20">
+								<a href="#" class="social-icon social-icon-border social-facebook float-left" data-toggle="tooltip" data-placement="top" title="Facebook">
+
+									<i class="icon-facebook"></i>
+									<i class="icon-facebook"></i>
+								</a>
+
+								<a href="#" class="social-icon social-icon-border social-twitter float-left" data-toggle="tooltip" data-placement="top" title="Twitter">
+									<i class="icon-twitter"></i>
+									<i class="icon-twitter"></i>
+								</a>
+
+								<a href="#" class="social-icon social-icon-border social-gplus float-left" data-toggle="tooltip" data-placement="top" title="Google plus">
+									<i class="icon-gplus"></i>
+									<i class="icon-gplus"></i>
+								</a>
+
+								<a href="#" class="social-icon social-icon-border social-linkedin float-left" data-toggle="tooltip" data-placement="top" title="Linkedin">
+									<i class="icon-linkedin"></i>
+									<i class="icon-linkedin"></i>
+								</a>
+
+								<a href="#" class="social-icon social-icon-border social-rss float-left" data-toggle="tooltip" data-placement="top" title="Rss">
+									<i class="icon-rss"></i>
+									<i class="icon-rss"></i>
+								</a>
+					
+							</div>
+							<!-- /Social Icons -->
 
 						</div>
-						<!-- /col #2 -->
 
 					</div>
-
 
 				</div>
 
@@ -676,10 +765,9 @@
 							<li>&bull;</li>
 							<li><a href="#">Privacy</a></li>
 						</ul>
-						&copy; All Rights Reserved, Rocket Elevators
+						&copy; All Rights Reserved, Company LTD
 					</div>
 				</div>
-
 			</footer>
 			<!-- /FOOTER -->
 
