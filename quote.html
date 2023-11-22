@@ -200,25 +200,26 @@
                         industrial  - id for Building Type Industrial -->
 			<div class="form-check form-check-inline">
 				<label class="buildingLabel" for="residential">
-				<input class="buildingInput" type="radio" name="buildingType" id="residential" value="residential" style="vertical-align: middle;">
+					<input class="buildingInput" type="radio" name="buildingType" id="residential" value="residential"
+						style="vertical-align: middle;">
 					Residential
 				</label>
 			</div>
 			<div class="form-check form-check-inline">
 				<label class="buildingLabel" for="commercial">
-				<input class="buildingInput" type="radio" name="buildingType" id="commercial" value="commercial">
+					<input class="buildingInput" type="radio" name="buildingType" id="commercial" value="commercial">
 					Commercial
 				</label>
 			</div>
 			<div class="form-check form-check-inline">
 				<label class="buildingLabel" for="industrial">
-				<input class="buildingInput" type="radio" name="buildingType" id="industrial" value="industrial">
+					<input class="buildingInput" type="radio" name="buildingType" id="industrial" value="industrial">
 					Industrial
 				</label>
 			</div>
 			<!-- /Building types -->
 
-			
+
 			<!-- Residential form fields
                     inputResNumApts   - The number of apartments in the building
                     inputResNumFloors - The number of floors contained in the building -->
@@ -226,14 +227,15 @@
 				<div class="form-group">
 					<div class="input col-md-4">
 						<span class="input-text" for="inputResNumApts">Number of apartments in the building</span>
-						<input type="number" value='' class="form-control" placeholder="Number of Apartments" min="0" max="1000"
-							name="inputResNumApts" id="inputResNumApts" onchange="update()">
+						<input type="number" value='' class="form-control" placeholder="Number of Apartments" min="0"
+							max="1000" name="inputResNumApts" id="inputResNumApts" onchange="update()">
 					</div>
 				</div>
 				<div class="input col-md-4">
 					<span class="input-text" for="inputResNumFloors">Number of floors contained in the building</span>
 					<input type="number" value='' class="form-control" placeholder="Number of Floors" min="0" max="300"
-						aria-label="inputResNumFloors" aria-describedby="inputResNumFloors" id="inputResNumFloors" onchange="update()">
+						aria-label="inputResNumFloors" aria-describedby="inputResNumFloors" id="inputResNumFloors"
+						onchange="update()">
 				</div>
 			</div>
 			<!-- /Residential form fields -->
@@ -246,15 +248,17 @@
 					<div class="input col-md-4">
 						<span class="input-text" for="inputComNumFloors">Number of floors contained in the
 							building</span>
-						<input type="number" value="" class="form-control" placeholder="Number of Floors" min="0" max="300"
-							name="inputComNumFloors" id="inputComNumFloors" onchange="update()">
+						<input type="number" value="" class="form-control" placeholder="Number of Floors" min="0"
+							max="300" name="inputComNumFloors" id="inputComNumFloors" onchange="update()">
 					</div>
 				</div>
 				<div class="input col-md-4">
 					<span class="input-text" for="inputComMaxOccupancyPerFloor">Maximum occupancy per floor in the
 						building</span>
-					<input id="inputComMaxOccupancyPerFloor" type="number" value="" class="form-control" placeholder="Maximum Occupancy Per Floor" min="0" max="1000"
-						aria-label="inputComMaxOccupancyPerFloor" aria-describedby="inputComMaxOccupancyPerFloor" onchange="update()">
+					<input id="inputComMaxOccupancyPerFloor" type="number" value="" class="form-control"
+						placeholder="Maximum Occupancy Per Floor" min="0" max="1000"
+						aria-label="inputComMaxOccupancyPerFloor" aria-describedby="inputComMaxOccupancyPerFloor"
+						onchange="update()">
 				</div>
 			</div>
 			<!-- /Commercial form fields -->
@@ -266,14 +270,14 @@
 				<div class="form-group">
 					<div class="input col-md-4">
 						<label class="input-text" for="inputIndNumElevators">Number of elevators needed</label>
-						<input name="inputIndNumElevators" id="inputIndNumElevators" type="number" min="0" max="300" 
-						onchange="update()" class="form-control">
+						<input name="inputIndNumElevators" id="inputIndNumElevators" type="number" min="0" max="300"
+							onchange="update()" class="form-control">
 					</div>
 				</div>
 			</div>
 			<!-- /Industrial form fields -->
-			
-			
+
+
 			<!-- Product tier Done as radio buttons 
                         standard - id for product tier Standard
                         premium  - id for product tier Premium
@@ -282,19 +286,19 @@
 			<div id="inputProdTierField" style="display: none;">
 				<div class="form-check form-check-inline">
 					<label class="productTierLabel" for="standard">
-					<input class="productTierInput" type="radio" name="productTier" id="standard" value="standard">
+						<input class="productTierInput" type="radio" name="productTier" id="standard" value="standard">
 						Standard
 					</label>
 				</div>
 				<div class="form-check form-check-inline">
 					<label class="productTierLabel" for="premium">
-					<input class="productTierInput" type="radio" name="productTier" id="premium" value="premium">
+						<input class="productTierInput" type="radio" name="productTier" id="premium" value="premium">
 						Premium
 					</label>
 				</div>
 				<div class="form-check form-check-inline">
 					<label class="productTierLabel" for="excelium">
-					<input class="productTierInput" type="radio" name="productTier" id="excelium" value="excelium">
+						<input class="productTierInput" type="radio" name="productTier" id="excelium" value="excelium">
 						Excelium
 					</label>
 				</div>
@@ -304,21 +308,21 @@
 		<hr />
 
 		<!-- Summary Section -->
-		<div class="" id = 'summarySection'>
+		<div class="" id='summarySection'>
 			<h3 class="" id="summaryHeader">Summary</h3>
 			<label class="" for="textareaSummaryNumElevators">Number of Elevators needed</label>
-			<textarea id="textareaSummaryNumElevators" name="textareaSummaryNumElevators" rows="1" cols="50" 
+			<textarea id="textareaSummaryNumElevators" name="textareaSummaryNumElevators" rows="1" cols="50"
 				placeholder="The number of elevators needed." readonly></textarea>
 			<label class="" for="textareaSummaryPricePerElevators">Unit Price of Each Elevator</label>
-			<textarea id="textareaSummaryPricePerElevators" name="textareaSummaryPricePerElevators" rows="1" cols="50" 
+			<textarea id="textareaSummaryPricePerElevators" name="textareaSummaryPricePerElevators" rows="1" cols="50"
 				placeholder="The unit price of each elevator." readonly></textarea>
 			<label class="" for="textareaSummaryInstallFees">Installation Fees</label>
-			<textarea id="textareaSummaryInstallFees" name="textareaSummaryInstallFees" rows="1" cols="50" 
+			<textarea id="textareaSummaryInstallFees" name="textareaSummaryInstallFees" rows="1" cols="50"
 				placeholder="The installation fees." readonly></textarea>
 			<label class="" for="textareaSummaryFinCostEst">Final Cost Estimate</label>
-			<textarea id="textareaSummaryFinCostEst" name="textareaSummaryFinCostEst" rows="1" cols="50" 
+			<textarea id="textareaSummaryFinCostEst" name="textareaSummaryFinCostEst" rows="1" cols="50"
 				placeholder="The Final Cost Estimate." readonly></textarea>
-			
+
 		</div>
 
 		<!-- FOOTER -->

@@ -176,7 +176,7 @@ function NumElevatorsNeeded() {
 
 // 
 function updateSummary() {
-    if (intNumElevatorsNeeded > 0 && selectedUnitPrice > 0 && selectedInstallFee > 0 ){
+    if (intNumElevatorsNeeded > 0 && selectedUnitPrice > 0 && selectedInstallFee > 0) {
         installFees = (intNumElevatorsNeeded * selectedUnitPrice) * selectedInstallFee;
         finCostEst = (intNumElevatorsNeeded * selectedUnitPrice) + installFees;
     } else {
@@ -184,7 +184,7 @@ function updateSummary() {
     }
     document.getElementById('textareaSummaryInstallFees').value = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(installFees);
     document.getElementById('textareaSummaryFinCostEst').value = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(finCostEst);
-    
+
     return;
 }// /updateSummary
 
