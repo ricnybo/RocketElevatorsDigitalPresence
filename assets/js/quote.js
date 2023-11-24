@@ -167,6 +167,7 @@ function residentialBuildingTypeElevatorCalc() {
             numGrps20Stories = 1;
         }
     } else {
+        intNumElevatorsNeeded = 0;
         return 0;  // returns 0 if 1 or less floors AND 0 or less appartments.  Need at least 1 appartment
         // in the building and at least 2 floors for any elevators in residential.
     }
@@ -193,6 +194,7 @@ function commercialBuildingTypeElevatorCalc() {
         intNumElevatorsNeeded = elevatorBanks * elevatorsPerBank;
         return intNumElevatorsNeeded; // Return the total number of elevators required
     } else {
+        intNumElevatorsNeeded = 0;
         return 0; // Returns 0 if 1 or less floors
     }
 } // /commercialBuildingTypeElevatorCalc
