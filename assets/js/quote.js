@@ -1,5 +1,5 @@
 // Summary variables
-let buildingType = '';
+let buildingType = '';  // The type of building the elevator is being installed in.
 let intNumElevatorsNeeded = 0; // The number of elevators needed
 let unitPricePerElevator = 0; // The unit price per elevator
 let installFees = 0; // The calculated installation fees (intNumElevatorsNeeded * selectedUnitPrice * selectedInstallFee)
@@ -13,10 +13,50 @@ const installFeesPre = 0.15; // Premium teir installation fees 15%
 const installFeesExcelium = 0.2; // Excelium teir installation fees 20%
 let selectedInstallFee = 0;  // The installation fee as selected by the product tier
 
+// Whenever the user makes a change to the 'requet a quote' form,
+// update() is called to update the summary
+function update() {
+    NumElevatorsNeeded();  // Updates the number of elevators required
+    updateSummary(); // Updates the installation fees and the final cost
+}// /update()
+
+
+// The NumElevatorsNeeded() function is responsible for updating the textareaSummaryNumElevators field 
+// in the summary section
+function NumElevatorsNeeded() {
+    if (buildingType === 'residential') {
+        document.getElementById('textareaSummaryNumElevators').value = residentialBuildingTypeElevatorCalc();
+    } else if (buildingType === 'commercial') {
+        document.getElementById('textareaSummaryNumElevators').value = commercialBuildingTypeElevatorCalc();
+    } else if (buildingType === 'industrial') {
+        document.getElementById('textareaSummaryNumElevators').value = industrialBuildingTypeElevatorCalc();
+    }
+    return;
+}// /NumElevatorsNeeded
+
+// The updateSummary() function is responsible for updating the textareaSummaryInstallFees and 
+// textareaSummaryFinCostEst fields in the summary section.
+function updateSummary() {
+    if (intNumElevatorsNeeded > 0 && selectedUnitPrice > 0 && selectedInstallFee > 0) {
+        installFees = (intNumElevatorsNeeded * selectedUnitPrice) * selectedInstallFee;
+        finCostEst = (intNumElevatorsNeeded * selectedUnitPrice) + installFees;
+    } else {
+        document.getElementById('textareaSummaryInstallFees').value = '';
+        document.getElementById('textareaSummaryFinCostEst').value = '';
+        return;
+    }
+    // Displays the installation fees and final cost in USD 
+    document.getElementById('textareaSummaryInstallFees').value = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(installFees);
+    document.getElementById('textareaSummaryFinCostEst').value = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(finCostEst);
+
+    return;
+}// /updateSummary
+
+
 // Buliding Type Form display Based on which Radio Button is Selected.
 // START
 
-// returns a NodeList representing a list of the document's 
+// Returns a NodeList representing a list of the document's 
 // elements that match the specified group of selectors
 const buildingMatches = document.querySelectorAll('.buildingInput');
 
@@ -30,16 +70,19 @@ const getSelectedValue = (event) => {
         document.getElementById('inputComFields').style.display = 'none';
         document.getElementById('inputIndFields').style.display = 'none';
         buildingType = 'residential';
+        update();
     } else if (event.target.value === 'commercial') {
         document.getElementById('inputResFields').style.display = 'none';
         document.getElementById('inputComFields').style.display = 'block';
         document.getElementById('inputIndFields').style.display = 'none';
         buildingType = 'commercial';
+        update();
     } else if (event.target.value === 'industrial') {
         document.getElementById('inputResFields').style.display = 'none';
         document.getElementById('inputComFields').style.display = 'none';
         document.getElementById('inputIndFields').style.display = 'block';
         buildingType = 'industrial';
+        update();
     }
     document.getElementById('inputProdTierField').style.display = 'block'
 }
@@ -67,6 +110,7 @@ const getSelectedProductTier = (event) => {
     if (event.target.value === 'standard') {
         console.log(event.target.value);
         selectedUnitPrice = unitPricePerElevatorStd;
+        // Displays the price per elevator in USD 
         document.getElementById('textareaSummaryPricePerElevators').value = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(selectedUnitPrice);
         selectedInstallFee = installFeesStd;
         update();
@@ -74,12 +118,14 @@ const getSelectedProductTier = (event) => {
     } else if (event.target.value === 'premium') {
         console.log(event.target.value);
         selectedUnitPrice = unitPricePerElevatorPre;
+        // Displays the price per elevator in USD 
         document.getElementById('textareaSummaryPricePerElevators').value = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(selectedUnitPrice);
         selectedInstallFee = installFeesPre;
         update();
     } else if (event.target.value === 'excelium') {
         console.log(event.target.value);
         selectedUnitPrice = unitPricePerElevatorExcelium;
+        // Displays the price per elevator in USD 
         document.getElementById('textareaSummaryPricePerElevators').value = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(selectedUnitPrice);
         selectedInstallFee = installFeesExcelium;
         update();
@@ -104,9 +150,9 @@ function residentialBuildingTypeElevatorCalc() {
     let avgAptPerFloor = 0;
     let numGrps20Stories = 0;
     let aptPerFloorElevatorReq = 0;
+    // Ensures the value is a number and not a string
     let resNumFloors = Number(document.getElementById('inputResNumFloors').value);
     let resNumApts = Number(document.getElementById('inputResNumApts').value);
-
 
     if ((resNumFloors > 1) && (resNumApts > 0)) {
         avgAptPerFloor = Math.ceil(resNumApts / resNumFloors);
@@ -137,14 +183,18 @@ dividing the number of floors by 10, as opposed to 20 for residential buildings.
 addition, for commercial buildings, each elevator bank must have an additional
 elevator for freight.*/
 function commercialBuildingTypeElevatorCalc() {
-    let totalNumOccupants = Number(document.getElementById('inputComMaxOccupancyPerFloor').value) * Number(document.getElementById('inputComNumFloors').value);
-    let elevatorsPerBank = Math.ceil(totalNumOccupants / 200);
-    let elevatorBanks = Math.ceil(Number(document.getElementById('inputComNumFloors').value) / 10);
-    if (elevatorsPerBank > 0) {
-        elevatorsPerBank += elevatorBanks; // Add 1 elevator per bank for freight
+    if (Number(document.getElementById('inputComNumFloors').value) > 1) {
+        let totalNumOccupants = Number(document.getElementById('inputComMaxOccupancyPerFloor').value) * Number(document.getElementById('inputComNumFloors').value);
+        let elevatorsPerBank = Math.ceil(totalNumOccupants / 200);
+        let elevatorBanks = Math.ceil(Number(document.getElementById('inputComNumFloors').value) / 10);
+        if (elevatorsPerBank > 0) {
+            elevatorsPerBank += elevatorBanks; // Add 1 elevator per bank for freight
+        }
+        intNumElevatorsNeeded = elevatorBanks * elevatorsPerBank;
+        return intNumElevatorsNeeded; // Return the total number of elevators required
+    } else {
+        return 0; // Returns 0 if 1 or less floors
     }
-    intNumElevatorsNeeded = elevatorBanks * elevatorsPerBank;
-    return intNumElevatorsNeeded; // Return the total number of elevators required
 } // /commercialBuildingTypeElevatorCalc
 
 // Industrial building type calculations
@@ -155,36 +205,3 @@ function industrialBuildingTypeElevatorCalc() {
     intNumElevatorsNeeded = Number(document.getElementById('inputIndNumElevators').value);
     return intNumElevatorsNeeded;
 }// /industrialBuildingTypeElevatorCalc
-
-function update() {
-    NumElevatorsNeeded();
-    updateSummary();
-}
-
-// The NumElevatorsNeeded() function is responsible for updating the textareaSummaryNumElevators field 
-// in the summary section
-function NumElevatorsNeeded() {
-    if (buildingType === 'residential') {
-        document.getElementById('textareaSummaryNumElevators').value = residentialBuildingTypeElevatorCalc();
-    } else if (buildingType === 'commercial') {
-        document.getElementById('textareaSummaryNumElevators').value = commercialBuildingTypeElevatorCalc();
-    } else if (buildingType === 'industrial') {
-        document.getElementById('textareaSummaryNumElevators').value = industrialBuildingTypeElevatorCalc();
-    }
-    return;
-}// /NumElevatorsNeeded
-
-// 
-function updateSummary() {
-    if (intNumElevatorsNeeded > 0 && selectedUnitPrice > 0 && selectedInstallFee > 0) {
-        installFees = (intNumElevatorsNeeded * selectedUnitPrice) * selectedInstallFee;
-        finCostEst = (intNumElevatorsNeeded * selectedUnitPrice) + installFees;
-    } else {
-        return;
-    }
-    document.getElementById('textareaSummaryInstallFees').value = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(installFees);
-    document.getElementById('textareaSummaryFinCostEst').value = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(finCostEst);
-
-    return;
-}// /updateSummary
-
